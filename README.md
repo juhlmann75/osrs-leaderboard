@@ -2,5 +2,6 @@
 Discord bot to view OSRS league leaderboard
 
 ```bash
-go run main.go -t $BOT_TOKEN 
+export BOT_TOKEN=${BOT_TOKEN}
+go run main.go
 ```

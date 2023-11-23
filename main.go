@@ -1,7 +1,6 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"github.com/bwmarrin/discordgo"
 	"io"
@@ -17,8 +16,7 @@ var (
 )
 
 func init() {
-	flag.StringVar(&Token, "t", "", "Bot Token")
-	flag.Parse()
+	Token = os.Getenv("BOT_TOKEN")
 }
 
 func main() {
@@ -58,10 +56,10 @@ func messageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
 	}
 
 	if strings.HasPrefix(m.Content, "!leaderboard") {
-		command := strings.Split(m.Content, " ")
+		_, after, found := strings.Cut(m.Content, " ")
 		username := "D4N_K"
-		if len(command) > 1 {
-			username = command[1]
+		if found {
+			username = after
 		}
 		requestUrl := "https://secure.runescape.com/m=hiscore_oldschool_seasonal/index_lite.ws?player=" + username
 		response, err := http.Get(requestUrl)
