@@ -1,6 +1,7 @@
 module osrs/leagerboard
 
-go 1.21
+go 1.23.0
+
 toolchain go1.24.1
 
 require github.com/bwmarrin/discordgo v0.27.1

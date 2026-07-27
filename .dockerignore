@@ -1,0 +1,7 @@
+.git
+.idea
+*.exe
+*.test
+*.out
+Dockerfile
+.dockerignore
